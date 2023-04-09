@@ -38,11 +38,13 @@ table.neumorphic>tbody>tr>td {
   padding: 10px;
   font-size: 14px;
   position: relative;
+  transition: 0.5s;
 }
 
 
-table.neumorphic>tbody>tr:hover {
-  padding: 20px;
+table.neumorphic>tbody>tr>td:hover {
+  padding: 10px;
+  border-radius: 0.4rem;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
     -9px -9px 16px rgba(255, 255, 255, 0.6);
 }
@@ -88,5 +90,128 @@ table.neumorphic td:hover::after {
   background: #e0e5ec;
   content: '';
   border-radius: 10%;
+}
 
+.input-fields {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .input-fields {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 0.5fr 0.5fr;
+  }
+}
+
+.text-input-group {
+  position: relative;
+}
+
+.text-input-group label,
+.text-input-group input {
+  font-size: 14px;
+  line-height: 20px;
+  color: #212121
+}
+
+.text-input-group label {
+  position: absolute;
+  left: 18px;
+  top: 17px;
+  transform-origin: left top;
+  transition: all 0.25s linear;
+}
+
+.text-input-group input {
+  appearance: none;
+  border-radius: 10px;
+  min-height: 30px;
+  padding: 10px 15px;
+  margin-top: 5px;
+  background: #e0e5ec;
+  border: 2px solid #f1f1f1;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.6);
+  transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  color: #212121
+}
+
+.text-input-group input::placeholder {
+  color: #f1f1f1;
+  transition: color 0.25s linear;
+  text-shadow: none;
+}
+
+.text-input-group input:focus:enabled,
+.text-input-group input:active:enabled {
+  outline: none;
+  color: #212121;
+  border-color: #212121;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .text-input-group input:focus:enabled,
+  .text-input-group input:active:enabled {
+    border-color: #212121;
+  }
+}
+
+.text-input-group input:focus:enabled::placeholder,
+.text-input-group input:active:enabled::placeholder {
+  color: #212121;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .text-input-group input:focus:enabled::placeholder,
+  .text-input-group input:active:enabled::placeholder {
+    color: #212121;
+  }
+}
+
+.text-input-group input:focus:enabled+label,
+.text-input-group input:active:enabled+label {
+  transform: translateY(-34px) scale(0.9);
+  font-weight: 600;
+}
+
+.text-input-group input:valid+label {
+  transform: translateY(-34px) scale(0.9);
+  font-weight: 600;
+}
+
+button {
+  border-radius: 10px;
+  padding: 10px 15px;
+  max-width: 500px;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  color: #212121;
+  background: #e0e5ec;
+  border: 2px solid #f1f1f1;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.6);
+  height: 100%;
+}
+
+button:hover,
+button:active,
+button:focus,
+button.active {
+  outline: none;
+  box-shadow: inset 9px 9px 16px rgba(163, 177, 198, 0.6),
+    inset -9px -9px 16px rgba(255, 255, 255, 0.6), 2px 2px 9px rgba(163, 177, 198, 0.6);
+  color: #212121;
+  border-color: #f1f1f1;
 }

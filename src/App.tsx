@@ -5,6 +5,8 @@ import dataList from './assets/data.json'
 
 function App() {
   const [wrongSubmissions, setWrongSubmissions] = React.useState<number>()
+  const [date, setDate] = React.useState<string>('2021-10-04')
+  const [limit, setLimit] = React.useState<string>('5')
   const tableRef = React.useRef<any>()
 
   React.useEffect(() => {
@@ -42,9 +44,36 @@ function App() {
     setWrongSubmissions(wrongBgCount)
   }
 
+  const handleControlClick = () => {
+    control(date, Number(limit))
+  }
+
   return (
     <div className="container">
       <div className="text">Dgpays Case Study </div>
+      <div className="input-fields">
+        <div className="text-input-group">
+          <input
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
+            type="date"
+            id="date"
+            name="date"
+          />
+          <label htmlFor="date">Tarih</label>
+        </div>
+        <div className="text-input-group">
+          <input
+            type="number"
+            value={limit}
+            onChange={(e) => setLimit(e.target.value)}
+            id="limit"
+            name="limit"
+          />
+          <label htmlFor="limit">Limit</label>
+        </div>
+        <button onClick={handleControlClick}>submit</button>
+      </div>
       <Grid source={dataList} innerRef={tableRef} />
       <p>Geç gönderim sayısı: {wrongSubmissions}</p>
     </div>
