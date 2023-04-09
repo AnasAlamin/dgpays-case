@@ -17,7 +17,7 @@ const Grid = ({ source, innerRef }: GridProps) => {
           <tr
             key={index}
             style={{
-              backgroundColor: data.isBackgroundColorRed ? 'red' : 'white'
+              backgroundColor: data.isBackgroundColorRed ? 'red' : '#e0e5ec'
             }}
           >
             <td>{data.name}</td>
